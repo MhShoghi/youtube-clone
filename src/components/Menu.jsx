@@ -76,6 +76,10 @@ const Title = styled.h2`
   margin-bottom: 20px;
 `;
 
+const TextBox = styled.div`
+  margin-bottom: 10px;
+`;
+
 function Menu({ darkMode, setDarkMode }) {
   return (
     <Container>
@@ -108,7 +112,7 @@ function Menu({ darkMode, setDarkMode }) {
         </Item>
 
         <Login>
-          Sign in to like videos, comment and subscribe
+          <TextBox>Sign in to like videos, comment and subscribe</TextBox>
           <Button onClick={() => console.log("object")}>
             <AccountCircleOutlinedIcon /> SIGN IN
           </Button>
