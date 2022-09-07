@@ -18,13 +18,17 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import FlagOutlinedIcon from "@mui/icons-material/FlagOutlined";
 import HelpOutlineOutlinedIcon from "@mui/icons-material/HelpOutlineOutlined";
 import SettingsBrightnessOutlinedIcon from "@mui/icons-material/SettingsBrightnessOutlined";
+import Button from "./Button";
 
 const Container = styled.div`
   flex: 1;
-  background-color: #202020;
+  background-color: ${({ theme }) => theme.bgLighter};
   height: 100vh;
-  color: white;
+  color: ${({ theme }) => theme.text};
   font-size: 14px;
+  position: sticky;
+  top: 0;
+  overflow: scroll;
 `;
 
 const Logo = styled.div`
@@ -33,6 +37,10 @@ const Logo = styled.div`
   gap: 5px;
   font-weight: bold;
   margin-bottom: 25px;
+  padding: 10px;
+  position: sticky;
+  top: 0;
+  background-color: ${({ theme }) => theme.bgLighter};
 `;
 
 const Img = styled.img`
@@ -40,7 +48,7 @@ const Img = styled.img`
 `;
 
 const Wrapper = styled.div`
-  padding: 18px 26px;
+  padding: 0 18px 26px 18px;
 `;
 
 const Item = styled.div`
@@ -54,12 +62,21 @@ const Item = styled.div`
   }
 `;
 
+const Login = styled.div``;
+
 const Hr = styled.hr`
   margin: 15px 0px;
   border: 0.5px solid ${({ theme }) => theme.soft};
 `;
 
-function Menu() {
+const Title = styled.h2`
+  font-size: 14px;
+  font-weight: 500;
+  color: #aaaaaa;
+  margin-bottom: 20px;
+`;
+
+function Menu({ darkMode, setDarkMode }) {
   return (
     <Container>
       <Wrapper>
@@ -90,6 +107,15 @@ function Menu() {
           History
         </Item>
 
+        <Login>
+          Sign in to like videos, comment and subscribe
+          <Button onClick={() => console.log("object")}>
+            <AccountCircleOutlinedIcon /> SIGN IN
+          </Button>
+        </Login>
+        <Hr />
+
+        <Title>MORE FROM YOUTUBE</Title>
         <Item>
           <LibraryMusicOutlinedIcon />
           Music
@@ -127,7 +153,7 @@ function Menu() {
           <HelpOutlineOutlinedIcon />
           Help
         </Item>
-        <Item>
+        <Item onClick={() => setDarkMode(!darkMode)}>
           <SettingsBrightnessOutlinedIcon />
           Mode
         </Item>
