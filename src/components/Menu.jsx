@@ -110,7 +110,7 @@ function Menu({ darkMode, setDarkMode }) {
           <HistoryOutlinedIcon />
           History
         </Item>
-
+        <Hr />
         <Login>
           <TextBox>Sign in to like videos, comment and subscribe</TextBox>
           <Button onClick={() => console.log("object")}>
